@@ -93,3 +93,79 @@ function begin7($radius)
 }
 
 begin7(2.32);
+/**
+ * Среднее арифметическое двух чисел
+ * @param $a
+ * @param $b
+ * @return float|int
+ */
+function begin8($a, $b)
+{
+    if (!is_int($a) && !is_int($b)) {
+        die('$a, $b - должны быть целые числа.');
+    }
+    $middleAryfmetic = ($a + $b) / 2;
+    return $middleAryfmetic;
+}
+
+echo 'Среднее арифметическое двух чисел: '.begin8(25, 27).'<br>';
+/**
+ * Среднее геометрическое двух чисел
+ * @param $a
+ * @param $b
+ * @return float
+ */
+function begin9($a, $b)
+{
+    if (!is_float($a) && !is_float($b)) {
+        die('Должны быть числа.');
+    }
+    if ($a * $b < 0) {
+        die('$a, $b должны быть >0');
+    }
+    $middleGeometric = sqrt($a * $b);
+    return $middleGeometric;
+}
+
+echo 'Среднее геометрическое двух чисел: '.begin9(25.4, 27.4).'<br>';
+/**
+ * Сумма квадратов, разность, произведение, частное двух чисел
+ * @param $a
+ * @param $b
+ */
+function begin10($a, $b)
+{
+    if (!is_numeric($a) && !is_numeric($b)) {
+        die('$a, $b должны быть числа.');
+    }
+    $aSquare = $a * $a;
+    $bSquare = $b * $b;
+    $Summa = $aSquare + $bSquare;
+    $Raznost = $aSquare - $bSquare;
+    $Proizvedenie = $aSquare * $bSquare;
+    $Chastnoe = $aSquare / $bSquare;
+    echo 'Сумма квадратов: Разность квадратов: Произведение квадратов: Частное квадратов: '.$Summa.' '.$Raznost.' '.$Proizvedenie.' '.$Chastnoe.'<br>';
+}
+
+begin10(25.4, 27);
+/**
+ * Сумма, разность, произведение, частное модулей двух чисел $a & $b
+ * @param $a
+ * @param $b
+ * @return string
+ */
+function begin11($a, $b)
+{
+    if (!is_numeric($a) && !is_numeric($b)) {
+        die('Должны быть только числа (целые, дробные)');
+    }
+    $Summa = abs($a) + abs($b);
+    $R = abs($a) - abs($b);
+    $P = abs($a) * abs($b);
+    $Ch = abs($a) / abs($b);
+    return $Summa.' '.$R.' '.$P.' '.$Ch;
+}
+
+echo 'Сумма, разность, произведение, частное модулей двух чисел $a & $b: <br>';
+echo begin11(25.5, 27.7);
+echo '<br>';
