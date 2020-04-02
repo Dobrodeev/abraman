@@ -76,3 +76,20 @@ function begin6($a, $b, $c)
 }
 
 begin6(2.32, 76.4, 9.12);
+
+/**
+ * Вычисление длинны окружности и площади круга по формулам L = 2*pi*R; S= pi * R*R
+ * @param $radius
+ */
+function begin7($radius)
+{
+    if (!is_int($radius) && !is_float($radius)) {
+        die('Передавать можно только число');
+    }
+    $L = 2 * M_PI * $radius;
+    $S = M_PI * $radius * $radius;
+    echo 'Длинна окружности: '.$L.'<br>';
+    echo 'Площадь круга: '.$S.'<br>';
+}
+
+begin7(2.32);
