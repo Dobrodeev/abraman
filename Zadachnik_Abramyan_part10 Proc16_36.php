@@ -4,30 +4,43 @@
  * @author Valera
  * @copyright 2017
  */
+//
+
 function randomm()
 {
     static $x = 133;
     $p = 3156353;
-    $x = ($x*$x + 3) % $p;
+    $x = ($x * $x + 3) % $p;
     //print($x." ");
     return abs($x / $p);
 }
 
+/**
+ * @param $a
+ * @param $b
+ * @return int
+ */
 function random2($a, $b)
 {
-    return (int)($a + randomm()*($b-$a));
+    return (int) ($a + randomm() * ($b - $a));
 }
 
 /*for($i=0; $i<100; $i++)
     print(random2(10,100)."<br>");
 */
 
+/**
+ * @param $x
+ */
 function f1($x)
 {
     $x += 2;  // changed parameter
     print($x."<br>");
 }
 
+/**
+ *
+ */
 function f2()
 {
     $x = 4;
@@ -35,238 +48,377 @@ function f2()
     print($x."<br>");   // but not argument    
     $x++;
     $z = print($x."<br>");
-    print("dddddd ".$z."<br>"); 
+    print("dddddd ".$z."<br>");
 }
+
 f2();
 print(" ********** Summa a+b ********<br>");
+/**
+ * @param $a
+ * @param $b
+ * @return mixed
+ */
 function sum($a, $b)
 {
-    return $a+$b;
+    return $a + $b;
 }
-print(sum(5,11)."<br>");
-print(" ********** Модуль a ********<br>");
+
+print(sum(5, 11)."<br>");
+print(" ********** пїЅпїЅпїЅпїЅпїЅпїЅ a ********<br>");
+/**
+ * @param $a
+ * @return int
+ */
 function _abs($a)
 {
-    return $a>0 ? $a : -$a;
+    return $a > 0 ? $a : -$a;
 }
-$n=rand(-3,2);
+
+$n = rand(-3, 2);
 print("n=".$n."<br>");
 print("abs(n)="._abs($n)."<br>");
 print(" ********** Sign(x) ********<br>");
+/**
+ * @param $x
+ * @return int
+ */
 function sign($x)
 {
-    if($x<0) return -1;
-    if($x==0) return 0;
-    return 1;// не нужен ни if ни else
+    if ($x < 0) {
+        return -1;
+    }
+    if ($x == 0) {
+        return 0;
+    }
+    return 1;// пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ if пїЅпїЅ else
 }
-$x=rand(-10,10);
+
+$x = rand(-10, 10);
 print("x=".$x." sign(x)=".sign($x)."<br>");
+/**
+ * @param $x
+ * @return int
+ */
 function Sign1($x)
 {
-    if($x<0) $y= -1;
-    elseif($x==0) $y= 0;
-    else $y= 1;
+    if ($x < 0) {
+        $y = -1;
+    } elseif ($x == 0) {
+        $y = 0;
+    } else {
+        $y = 1;
+    }
     return $y;
 }
 
+/**
+ *
+ */
 function Proc16()
 {
     print(" ********** Proc16() *******<br>");
-    $a=rand(-3,2);
-    $b=rand(-7,3);
-    $y=Sign1($a)+Sign1($b);
+    $a = rand(-3, 2);
+    $b = rand(-7, 3);
+    $y = Sign1($a) + Sign1($b);
     print("a=".$a." b=".$b."<br>");
     print("Sign(a)=".Sign1($a)." Sign(b)=".Sign1($b)." Sign(a)+Sign(b)=".$y."<br>");
 }
+
 Proc16();
-function RootCount($a,$b,$c)
+/**
+ * @param $a
+ * @param $b
+ * @param $c
+ * @return int
+ */
+function RootCount($a, $b, $c)
 {
-    $D=$b*$b-4*$a*$c;
-    if($D<0) $count=0;
-    elseif($D==0) $count=1;
-    else $count=2;
+    $D = $b * $b - 4 * $a * $c;
+    if ($D < 0) {
+        $count = 0;
+    } elseif ($D == 0) {
+        $count = 1;
+    } else {
+        $count = 2;
+    }
     return $count;
 }
+
+/**
+ *
+ */
 function Proc17()
 {
     print(" ********** Proc17() *******<br>");
-    $a=-2*lcg_value();
-    $b=-1.7*lcg_value();
-    $c=-1.3*lcg_value();
-    print("a=".$a." b=".$b." c=".$c." Квадратное уравнение имеет ".RootCount($a,$b,$c)." корней .<br>");
+    $a = -2 * lcg_value();
+    $b = -1.7 * lcg_value();
+    $c = -1.3 * lcg_value();
+    print("a=".$a." b=".$b." c=".$c." пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ".RootCount($a, $b, $c)." пїЅпїЅпїЅпїЅпїЅпїЅ .<br>");
 }
+
 Proc17();
+/**
+ * @param $R
+ * @return float|int
+ */
 function CircleS($R)
 {
-    $S=M_PI*$R*$R;
+    $S = M_PI * $R * $R;
     return $S;
 }
+
+/**
+ *
+ */
 function Proc18()
 {
     print(" ********* Proc18() **********<br>");
-    $R1=rand(1,6);
-    $R2=rand(1,7);
-    $R3=3.2*lcg_value();
+    $R1 = rand(1, 6);
+    $R2 = rand(1, 7);
+    $R3 = 3.2 * lcg_value();
     print("R1=".$R1." R2=".$R2." R3=".$R3."<br>");
     print("S1=".CircleS($R1)." S2=".CircleS($R2)." S3=".CircleS($R3)."<br>");
 }
+
 Proc18();
-function RingS($R1,$R2)
+/**
+ * @param $R1
+ * @param $R2
+ * @return float|int
+ */
+function RingS($R1, $R2)
 {
-    $S=M_PI*($R1*$R1-$R2*$R2);
+    $S = M_PI * ($R1 * $R1 - $R2 * $R2);
     return $S;
 }
+
+/**
+ *
+ */
 function Proc19()
 {
-    $R1=5*lcg_value();
-    $R2=1.3*lcg_value();
-    print("R1=".$R1." R2=".$R2." S кольца=".RingS($R1,$R2)."<br>");
+    $R1 = 5 * lcg_value();
+    $R2 = 1.3 * lcg_value();
+    print("R1=".$R1." R2=".$R2." S пїЅпїЅпїЅпїЅпїЅпїЅ=".RingS($R1, $R2)."<br>");
 }
+
 Proc19();
-function TriangleP($a,$h)
+/**
+ * @param $a
+ * @param $h
+ * @return float|int
+ */
+function TriangleP($a, $h)
 {
-    $b=sqrt(($a/2)*($a/2)+$h*$h);
-    $P=$a+2*$b;
-    $P=round($P);
+    $b = sqrt(($a / 2) * ($a / 2) + $h * $h);
+    $P = $a + 2 * $b;
+    $P = round($P);
     return $P;
 }
+
+/**
+ *
+ */
 function Proc20()
 {
-    print(" Периметр равнобедренного треугольника. <br>");
-    $a=3.3*lcg_value();
-    $h=3.7*lcg_value();
-    print("a=".$a." h=".$h." P=".TriangleP($a,$h));
+    print(" пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. <br>");
+    $a = 3.3 * lcg_value();
+    $h = 3.7 * lcg_value();
+    print("a=".$a." h=".$h." P=".TriangleP($a, $h));
 }
+
 Proc20();
-function SumRange($a,$b)
+/**
+ * @param $a
+ * @param $b
+ * @return int
+ */
+function SumRange($a, $b)
 {
-    if($a>$b) return 0;
-    $S=$a;
-    do
-    {
-        $a++;
-        $S+=$a;
-        if($a>=$b) break;
+    if ($a > $b) {
+        return 0;
     }
-    while(TRUE);
+    $S = $a;
+    do {
+        $a++;
+        $S += $a;
+        if ($a >= $b) {
+            break;
+        }
+    } while (true);
     return $S;
 }
+
+/**
+ *
+ */
 function Proc21()
 {
-    $a=rand(3,7);
-    $b=rand(5,11);
-    print(" from a=".$a." to b=".$b." Summa=".SumRange($a,$b)."<br>");
+    $a = rand(3, 7);
+    $b = rand(5, 11);
+    print(" from a=".$a." to b=".$b." Summa=".SumRange($a, $b)."<br>");
 }
+
 Proc21();
-function Calc($a,$b,$op)
+/**
+ * @param $a
+ * @param $b
+ * @param $op
+ * @return float|int
+ */
+function Calc($a, $b, $op)
 {
-    switch($op)
-    {
-        case 1: $res=$a+$b; break;
-        case 2: $res=$a-$b; break;
-        case 3: $res=$a/$b; break;
+    switch ($op) {
+        case 1:
+            $res = $a + $b;
+            break;
+        case 2:
+            $res = $a - $b;
+            break;
+        case 3:
+            $res = $a / $b;
+            break;
         case 4:
         case 5:
         case 6:
-        case 7: $res=$a*$b; break;
-        default: print("Error.<br>");
+        case 7:
+            $res = $a * $b;
+            break;
+        default:
+            print("Error.<br>");
     }
     return $res;
 }
+
+/**
+ *
+ */
 function Proc22()
 {
-    $a=-2.1*lcg_value();
-    $b=3.7*lcg_value();
-    $op=rand(1,7);
-    print("a=".$a." b=".$b." op=".$op." res=".Calc($a,$b,$op)."<br>");
+    $a = -2.1 * lcg_value();
+    $b = 3.7 * lcg_value();
+    $op = rand(1, 7);
+    print("a=".$a." b=".$b." op=".$op." res=".Calc($a, $b, $op)."<br>");
 }
+
 Proc22();
-function Quater($x,$y)
+/**
+ * @param $x
+ * @param $y
+ * @return int
+ */
+function Quater($x, $y)
 {
-    if($x>0 && $y>0) return 1;
-    elseif($x<0 && $y>0) return 2;
-    elseif($x<0 && $y<0) return 3;
-    elseif($x>0 && $y<0) return 4;
-    else return 0;
+    if ($x > 0 && $y > 0) {
+        return 1;
+    } elseif ($x < 0 && $y > 0) {
+        return 2;
+    } elseif ($x < 0 && $y < 0) {
+        return 3;
+    } elseif ($x > 0 && $y < 0) {
+        return 4;
+    } else {
+        return 0;
+    }
 }
+
+/**
+ *
+ */
 function Proc23()
 {
-    $x=rand(-3,7);
-    $y=rand(-7,5);
-    print(" точка (".$x.",".$y.") лежит в координатной четверти №".Quater($x,$y)."<br>");
+    $x = rand(-3, 7);
+    $y = rand(-7, 5);
+    print(" пїЅпїЅпїЅпїЅпїЅ (".$x.",".$y.") пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ".Quater($x, $y)."<br>");
 }
+
 Proc23();
+/**
+ * @param $K
+ * @return bool
+ */
 function Even($K)
 {
-    $flag= $K%2==0 ? true : false;
+    $flag = $K % 2 == 0 ? true : false;
     return $flag;
-    
+
 }
+
+/**
+ *
+ */
 function Proc24()
 {
-    $a=array();
-    $n=9;
+    $a = array();
+    $n = 9;
     print(" *********** Proc24() *********<br>");
-    print(" просто массив: <br>");
-    for($i=0;$i<$n;$i++)
-    {
-        $a[$i]=rand(0,20);
+    print(" пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: <br>");
+    for ($i = 0; $i < $n; $i++) {
+        $a[$i] = rand(0, 20);
         print($a[$i]." ");
     }
-    $S=0;
+    $S = 0;
     print("<br>");
-    print(" массив только из четных элементов: <br>");
-    for($i=0;$i<$n;$i++)
-    {
-        if(Even($a[$i]))
-        {
-           $S+=$a[$i];
-           print($a[$i]." ");  
-        }               
+    print(" пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: <br>");
+    for ($i = 0; $i < $n; $i++) {
+        if (Even($a[$i])) {
+            $S += $a[$i];
+            print($a[$i]." ");
+        }
     }
     print("S=".$S."<br>");
 }
+
 Proc24();
+/**
+ * @return string
+ */
 function IsSquare()
 {
     //print(" ******** IsSquare() ************<br>");
-    $K=80;
+    $K = 80;
     //print("K=".$K."<br>");
-    $a=sqrt($K);
-    $b=(int)$a;
-    $c=$a-$b;    
+    $a = sqrt($K);
+    $b = (int) $a;
+    $c = $a - $b;
     //print("K=".$K." a=".$a." b=".$b." c=".$c."<br>");
     //$flag= $c==0 ? true : false;
-    $flag= $c==0 ? "true" : "false";
+    $flag = $c == 0 ? "true" : "false";
     //print("flag=".$flag."<br>");
-    return $flag;        
+    return $flag;
 }
+
 //IsSquare();
+/**
+ *
+ */
 function Proc25()
 {
     print(" *********** Proc25() *********<br>");
-    for($i=0;$i<10;$i++)
-    {
-        $a[$i]=rand(1,16);
+    for ($i = 0; $i < 10; $i++) {
+        $a[$i] = rand(1, 16);
         print("a[".$i."]=".$a[$i]." ");
     }
-    $j=0;
+    $j = 0;
     print("<br>");
-    for($i=0;$i<10;$i++)
-    {
-        if(IsSquare($a[$i]))
-        {
+    for ($i = 0; $i < 10; $i++) {
+        if (IsSquare($a[$i])) {
             $j++;
             print("a[".$i."]=".$a[$i]." ");
         }
     }
-    print(" Всего ".$j." квадратов. <br>");    
+    print(" пїЅпїЅпїЅпїЅпїЅ ".$j." пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. <br>");
 }
+
 Proc25();
+/**
+ * @param $K
+ * @return bool
+ */
 function IsPower5($K)
 {
     /*
-    print("Проверка является ли число степенью числа 5.<br>");
+    print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 5.<br>");
     print("n=".$n."<br>");
     $n=25;
     $n0=$n;
@@ -280,450 +432,559 @@ function IsPower5($K)
     $flag= $K%5==0 ? true : false;
     return $flag;
     */
-    
-    while($K>0){
-        if($K==1) return true;
-        if($K % 5 != 0) return false;
+
+    while ($K > 0) {
+        if ($K == 1) {
+            return true;
+        }
+        if ($K % 5 != 0) {
+            return false;
+        }
         $K /= 5;
     }
     return false;
 }
+
 //IsPower5();
+/**
+ * @return bool
+ */
 function IsPower()
 {
-    $K=25;
-    $N=5;
-    print("Проверка является ли число K степенью числа N.<br>");
-    print("K=".$K." N=".$N."<br>"); 
-    while($K>0)
-    {
-        if($K%$N==1) return true;
-        if($K%$N!=0) return false;
-        $K/=$N;
-        print("K=".$K." N=".$N."<br>");  
+    $K = 25;
+    $N = 5;
+    print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ K пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ N.<br>");
+    print("K=".$K." N=".$N."<br>");
+    while ($K > 0) {
+        if ($K % $N == 1) {
+            return true;
+        }
+        if ($K % $N != 0) {
+            return false;
+        }
+        $K /= $N;
+        print("K=".$K." N=".$N."<br>");
     }
-    print("K=".$K." N=".$N."<br>");    
+    print("K=".$K." N=".$N."<br>");
 }
+
 IsPower();
+/**
+ * @return bool
+ */
 function IsPrime()
 {
-    $N=19;
-    $i=1;    
-    print("Проверка является ли число N простое число.<br>");
+    $N = 19;
+    $i = 1;
+    print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ N пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.<br>");
     print("N=".$N."<br>");
-    while($i<$N)
-    {
+    while ($i < $N) {
         $i++;
-        if($N%$i!=0) 
-        {
-            print(" простое число.<br>");
-            return true;// простое число
+        if ($N % $i != 0) {
+            print(" пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.<br>");
+            return true;// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         }
-        
-        if($N%$i==0) 
-        {
-            print(" непростое число.<br>"); 
-            return false; 
+
+        if ($N % $i == 0) {
+            print(" пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.<br>");
+            return false;
         }
-       
-        $N/=$i;
-        print("N=".$N." i=".$i."<br>"); 
+
+        $N /= $i;
+        print("N=".$N." i=".$i."<br>");
     }
 }
+
 IsPrime();
+/**
+ *
+ */
 function DigitCountNumbers()
 {
-    $a=rand(41234,30578);
+    $a = rand(41234, 30578);
     print("a=".$a."<br>");
     print("******* DigitCountNumbers() *********** <br>");
-    while($a>0)
-    {
-        $d=$a%10;
-        $a = (int)($a/10);
+    while ($a > 0) {
+        $d = $a % 10;
+        $a = (int) ($a / 10);
         print("a=".$a." ");
         print("d=".$d."<br>");
     }
 }
+
 //DigitCountNumbers();
+/**
+ * @param $a
+ */
 function DigitCount($a)
 {
     //$a=rand(41234,30578);
-    
+
     //print("******* DigitCount() *********** <br>");
     //print("a=".$a."<br>");
-    $save=$a;
-    $i=0;
-    while($a>0)
-    {
-        $d=$a%10;
-        $a = (int)($a/10);
+    $save = $a;
+    $i = 0;
+    while ($a > 0) {
+        $d = $a % 10;
+        $a = (int) ($a / 10);
         $i++;
         print($d." ");
         //print("a=".$a." ");
         //print("d=".$d."<br>");
     }
-    print("всего цифр в числе ".$save." будет: ".$i."<br>");
+    print("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ ".$save." пїЅпїЅпїЅпїЅпїЅ: ".$i."<br>");
 }
+
 //DigitCount();
 
+/**
+ *
+ */
 function Series29()
 {
     print("******* Series29() *********** <br>");
-    $x1=rand(130,4467);
-    $x2=rand(197,29136);
+    $x1 = rand(130, 4467);
+    $x2 = rand(197, 29136);
     print("x1=".$x1."<br>");
     print("x2=".$x2."<br>");
     DigitCount($x1);
     DigitCount($x2);
 }
+
 Series29();
-function DigitN0($K,$N)
+/**
+ * @param $K
+ * @param $N
+ * @return int
+ */
+function DigitN0($K, $N)
 {
     //$a=rand(41234,30578);
-    $a=$K;
+    $a = $K;
     //$N=3;
-    $save2=$a;
-    //K-число, N-номер цифры (нумерация справа налево) 
+    $save2 = $a;
+    //K-пїЅпїЅпїЅпїЅпїЅ, N-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ) 
     print("******* DigitCount() *********** <br>");
     print("a=".$K."<br>");
-    $save=$K;
-    $i=0;
-    while($a>0)
-    {
-        $d=$a%10;
-        $a = (int)($a/10);
+    $save = $K;
+    $i = 0;
+    while ($a > 0) {
+        $d = $a % 10;
+        $a = (int) ($a / 10);
         $i++;
         print($d." ");
         //if($i==$N) $cif=$d;
         //print("a=".$a." ");
         //print("d=".$d."<br>");
     }
-    print("всего цифр в числе ".$save." будет: ".$i."<br>");
-    if($i<$N) return -1;
+    print("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ ".$save." пїЅпїЅпїЅпїЅпїЅ: ".$i."<br>");
+    if ($i < $N) {
+        return -1;
+    }
     print("a=".$a." i=".$i."<br>");
-    $i=0;
-    $a=$save2;
+    $i = 0;
+    $a = $save2;
     print("a=".$a." i=".$i."<br>");
-    while($a>0)
-    {
-        $d=$a%10;
-        $a = (int)($a/10);
+    while ($a > 0) {
+        $d = $a % 10;
+        $a = (int) ($a / 10);
         $i++;
         //print($d." ");
-        if($i==$N) 
-        {
-            $cif=$d;
+        if ($i == $N) {
+            $cif = $d;
             break;
-        }      
+        }
         //print("a=".$a." ");
         //print("d=".$d."<br>");
     }
-    print("цифра номер ".$i." будет: ".$cif."<br>");
+    print("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ".$i." пїЅпїЅпїЅпїЅпїЅ: ".$cif."<br>");
 }
-function DigitN($K,$N)
+
+/**
+ * @param $K
+ * @param $N
+ * @return int
+ */
+function DigitN($K, $N)
 {
-    $a=$K;
-    $save2=$K;
-    //K-число, N-номер цифры (нумерация справа налево) 
+    $a = $K;
+    $save2 = $K;
+    //K-пїЅпїЅпїЅпїЅпїЅ, N-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ) 
     print("******* DigitCount() *********** <br>");
     print("a=".$K."<br>");
-    $save=$K;
-    $i=0;
-    while($K>0)
-    {
-        $d=$K%10;
-        $K = (int)($K/10);
+    $save = $K;
+    $i = 0;
+    while ($K > 0) {
+        $d = $K % 10;
+        $K = (int) ($K / 10);
         $i++;
         print($d." ");
     }
-    print("всего цифр в числе ".$save." будет: ".$i."<br>");
-    if($i<$N) return -1;
-    $i=0;
-    $K=$save2;
-    while($K>0)
-    {
-        $d=$K%10;
-        $K = (int)($K/10);
-        $i++;
-        if($i==$N) 
-        {
-            $cif=$d;
-            break;
-        }      
+    print("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ ".$save." пїЅпїЅпїЅпїЅпїЅ: ".$i."<br>");
+    if ($i < $N) {
+        return -1;
     }
-    print("цифра номер ".$i." будет: ".$cif."<br>");
+    $i = 0;
+    $K = $save2;
+    while ($K > 0) {
+        $d = $K % 10;
+        $K = (int) ($K / 10);
+        $i++;
+        if ($i == $N) {
+            $cif = $d;
+            break;
+        }
+    }
+    print("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ".$i." пїЅпїЅпїЅпїЅпїЅ: ".$cif."<br>");
 }
-DigitN(57892,2);
+
+DigitN(57892, 2);
+/**
+ * @param $K
+ * @return string
+ */
 function IsPalindrom($K)
 {
     print("******* IsPalindrom() *********** <br>");
     print("a=".$K."<br>");
-    $save=$K;
-    $arr=array();
-    $i=0;
-    $j=0;
-    while($K>0)
-    {
-        $d=$K%10;
-        $K = (int)($K/10);
+    $save = $K;
+    $arr = array();
+    $i = 0;
+    $j = 0;
+    while ($K > 0) {
+        $d = $K % 10;
+        $K = (int) ($K / 10);
         $i++;
         print($d." ");
-        $arr[$j]=$d;
+        $arr[$j] = $d;
         $j++;
     }
     print("<br>");
-    print("Массив arr<br>");
+    print("пїЅпїЅпїЅпїЅпїЅпїЅ arr<br>");
     print_r($arr);
     print("<br>");
-    $arr2=array();
-    $j=0;
+    $arr2 = array();
+    $j = 0;
     print("count(arr)=".count($arr)."<br>");
-    for($i=count($arr)-1;$i>-1;$i--)
-    {
-        $arr2[$j]=$arr[$i];
+    for ($i = count($arr) - 1; $i > -1; $i--) {
+        $arr2[$j] = $arr[$i];
         $j++;
     }
-    print("Массив arr в обратном порядке<br>");
+    print("пїЅпїЅпїЅпїЅпїЅпїЅ arr пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br>");
     print_r($arr2);
     print("<br>");
-    $i=$j=0;
-    for($i=0;$i<count($arr)-1;$i++)
-    {
-        if($arr[$i]-$arr2[$i]==0)
-        {
-            $flag="true";
+    $i = $j = 0;
+    for ($i = 0; $i < count($arr) - 1; $i++) {
+        if ($arr[$i] - $arr2[$i] == 0) {
+            $flag = "true";
             continue;
         }
-        if($arr[$i]-$arr2[$i]!=0)
-        {
-            $flag="false";
+        if ($arr[$i] - $arr2[$i] != 0) {
+            $flag = "false";
             break;
-        }                
+        }
     }
     print($flag."<br>");
     return $flag;
 }
+
 //IsPalindrom(123321);
-function Proc31()// Число 12 не определяется как палиндром, почему?
+/**
+ *
+ */
+function Proc31()// пїЅпїЅпїЅпїЅпїЅ 12 пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ?
 {
     print(" ********* Proc31() ***********<br>");
-    $arr_random=array(123321,677,121,988,1947,12,23677);
-    for($i=0;$i<count($arr_random)-1;$i++)
-    {
+    $arr_random = array(123321, 677, 121, 988, 1947, 12, 23677);
+    for ($i = 0; $i < count($arr_random) - 1; $i++) {
         print("array_random[".$i."]=".$arr_random[$i]." ");
     }
-    $index=rand(0,count($arr_random)-1);
-    print("случайно выбранный элемент массива: ".$arr_random[$index]."<br>");
-    if(IsPalindrom($arr_random[$index])=="true") print(" Число ".$arr_random[$index]." будет палиндромом (тоесть одинаковым справа налево).<br>");
-    else print(" Число ".$arr_random[$index]." не палиндром. <br>");
+    $index = rand(0, count($arr_random) - 1);
+    print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ".$arr_random[$index]."<br>");
+    if (IsPalindrom($arr_random[$index]) == "true") {
+        print(" пїЅпїЅпїЅпїЅпїЅ ".$arr_random[$index]." пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ).<br>");
+    } else {
+        print(" пїЅпїЅпїЅпїЅпїЅ ".$arr_random[$index]." пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. <br>");
+    }
 }
+
 Proc31();
-function DegToRad(&$D)// градусы в радианы
+/**
+ * @param $D
+ * @return float
+ */
+function DegToRad(&$D)// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 {
-    $save=$D;
-    $D=$D*0.017453;
+    $save = $D;
+    $D = $D * 0.017453;
     print($save." grad=".$D." rad<br>");
     return $D;
     //$rad=$D*0.017453;
     //print($D." grad=".$rad." rad<br>");
     //return $rad;
 }
-function RadToDeg(&$R)//радианы в градусы 
+
+/**
+ * @param $R
+ * @return float
+ */
+function RadToDeg(&$R)//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 {
-    $save=$R;
-    $R*=57.296;
+    $save = $R;
+    $R *= 57.296;
     print($save." rad=".$R." grad<br>");
     return $R;
     //$grad=$R*57.296;
     //print($R." rad=".$grad." grad<br>");
     //return $grad;
 }
+
+/**
+ *
+ */
 function Proc32()
 {
     print(" ********* Proc32() ***********<br>");
-    $D=rand(0,360);
-    $R=rand(1,6)*lcg_value();
+    $D = rand(0, 360);
+    $R = rand(1, 6) * lcg_value();
     print("D=".$D." R=".$R."<br>");
     DegToRad($D);
     RadToDeg($R);
     print("D=".$D." R=".$R."<br>");
     //print("rad=".$rad." grad=".$grad."<br>");
 }
+
 Proc32();
+/**
+ *
+ */
 function ArrayRand()
 {
     print(" ********* Array random ***********<br>");
-    $N=9;
-    $arr=array(0,1,2,3,4,5,6,7,8,9);
-    for($i=0;$i<$N;$i++)
-    {
+    $N = 9;
+    $arr = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+    for ($i = 0; $i < $N; $i++) {
         print("a[".$i."]=".$arr[$i]." ");
     }
-    $index=rand(0,count($arr)-1);
-    echo " случайно выбранный элемент массива: ".$arr[$index]."<br>";
-    print(" Вывод с помощью f print_r()...<br>");
+    $index = rand(0, count($arr) - 1);
+    echo " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ".$arr[$index]."<br>";
+    print(" пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ f print_r()...<br>");
     print_r($arr);
-    print(" Вывод с помощью f print_r() & pre/pre<br>");
+    print(" пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ f print_r() & pre/pre<br>");
     print("<br>");
     print("<pre>");
     print_r($arr);
     print("</pre>");
 }
+
 ArrayRand();
 //**/
+/**
+ *
+ */
 function Proc26()
 {
     print(" *********** Proc26() *********<br>");
-    for($i=0;$i<10;$i++)
-    {
-        $a[$i]=rand(1,16);
+    for ($i = 0; $i < 10; $i++) {
+        $a[$i] = rand(1, 16);
         print("a[".$i."]=".$a[$i]." ");
     }
-    $j=0;
+    $j = 0;
     print("<br>");
-    for($i=0;$i<10;$i++)
-    {
-        if(IsPower5($a[$i]))
-        {
+    for ($i = 0; $i < 10; $i++) {
+        if (IsPower5($a[$i])) {
             $j++;
             print("a[".$i."]=".$a[$i]." ");
         }
     }
-    print(" Всего ".$j." степеней 5. <br>");    
+    print(" пїЅпїЅпїЅпїЅпїЅ ".$j." пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 5. <br>");
 }
+
 Proc26();
-function Fact($n)// Факториал
-{    
-    $F=1;
-    $i=0;
-    do
-    {
-        $i++;
-        $F*=$i;
-        print($i." ");
-        if($i>=$n) break;        
-    }
-    while(true);
-    print("<br>");
-    return $F;    
-}
-function Fact2($n)// Двойной факториал: четный или нечетный
+/**
+ * @param $n
+ * @return int
+ */
+function Fact($n)// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 {
-    $F=1;
-    $i=0;
-    do
-    {
-        $i+=2;
-        $F*=$i;        
+    $F = 1;
+    $i = 0;
+    do {
+        $i++;
+        $F *= $i;
         print($i." ");
-        if($i>=$n) break;
-        
-    }
-    while(true);
+        if ($i >= $n) {
+            break;
+        }
+    } while (true);
     print("<br>");
     return $F;
 }
+
+/**
+ * @param $n
+ * @return int
+ */
+function Fact2($n)// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+{
+    $F = 1;
+    $i = 0;
+    do {
+        $i += 2;
+        $F *= $i;
+        print($i." ");
+        if ($i >= $n) {
+            break;
+        }
+
+    } while (true);
+    print("<br>");
+    return $F;
+}
+
+/**
+ * @param $n
+ * @return int
+ */
 function Fact3($n)
 {
-    $F=1;
-    $i=-1;
-    do
-    {
-        $i+=2;
-        $F*=$i;        
+    $F = 1;
+    $i = -1;
+    do {
+        $i += 2;
+        $F *= $i;
         print($i." ");
-        if($i>=$n) break;
-        
-    }
-    while(true);
+        if ($i >= $n) {
+            break;
+        }
+
+    } while (true);
     print("<br>");
     return $F;
 }
-function Fib($n)// Числа Фибоначчи
+
+/**
+ * @param $n
+ */
+function Fib($n)// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 {
-    $a=array();
-    for($i=2;$i<$n;$i++)
-    {
-        $a[0]=1;
-        $a[1]=1;
-        $a[$i]=$a[$i-1]+$a[$i-2];
+    $a = array();
+    for ($i = 2; $i < $n; $i++) {
+        $a[0] = 1;
+        $a[1] = 1;
+        $a[$i] = $a[$i - 1] + $a[$i - 2];
     }
-    for($i=0;$i<$n;$i++)
-    {
+    for ($i = 0; $i < $n; $i++) {
         print($a[$i]." ");
     }
-   
+
 }
+
+/**
+ * @param $x
+ */
 function Quaters($x)
 {
-    for($i=10;$i<$x;$i++)
-    {
-        $qu=$i*$i;
+    for ($i = 10; $i < $x; $i++) {
+        $qu = $i * $i;
         print($i." i*i=".$qu."<br>");
     }
 }
-/**
-function FibRec($F)
-{
-    if($F==1) FibRec(1)=1;
-    if($F==2) FibtRec(2)=1;
-    if($F>2) FibRec($F)=FibRec($F-1)+FibRec($F-2);
-    FibRec(5);    
-}
-FibRec();
 
-function FactRec($n)
-{
-    if($n==0) 
-    FactRec($n)=1;
-    if($n>0) FactRec($n)=FactRec($n-1);
-    print($n."!=".FactRec($n)."<br>");
-    return;    
-}
-**/
+/**
+ * function FibRec($F)
+ * {
+ * if($F==1) FibRec(1)=1;
+ * if($F==2) FibtRec(2)=1;
+ * if($F>2) FibRec($F)=FibRec($F-1)+FibRec($F-2);
+ * FibRec(5);
+ * }
+ * FibRec();
+ *
+ * function FactRec($n)
+ * {
+ * if($n==0)
+ * FactRec($n)=1;
+ * if($n>0) FactRec($n)=FactRec($n-1);
+ * print($n."!=".FactRec($n)."<br>");
+ * return;
+ * }
+ **/
 function FactorialRec($n)
 {
-    if($n==0) return 1;
-    if($n>0) return FactorialRec($n-1)*$n;
+    if ($n == 0) {
+        return 1;
+    }
+    if ($n > 0) {
+        return FactorialRec($n - 1) * $n;
+    }
 }
+
+/**
+ * @param $n
+ * @return int
+ */
 function FibRec($n)
 {
-    if($n==1) return 1;
-    if($n==2) return 1;
-    if($n>2) return FibRec($n-1)+FibRec($n-2);
+    if ($n == 1) {
+        return 1;
+    }
+    if ($n == 2) {
+        return 1;
+    }
+    if ($n > 2) {
+        return FibRec($n - 1) + FibRec($n - 2);
+    }
 }
+
+/**
+ * @param $counter
+ */
 function callself($counter)
 {
-    if($counter>0)
-    {
-        echo($counter--)."<br>";
+    if ($counter > 0) {
+        echo ($counter--)."<br>";
         callself($counter);
+    } else {
+        return;
     }
-    else return;
 }
+
+/**
+ *
+ */
 function ProcRecursia()
 {
     print("************ ProcRecursia() *************<br>");
     callself(4);
-    $n=7;
-    print($n."!=".FactorialRec($n)."<br>");    
+    $n = 7;
+    print($n."!=".FactorialRec($n)."<br>");
     print("FibRec: ".FibRec($n)."<br>");
     print("<br>");
 }
+
 ProcRecursia();
+/**
+ *
+ */
 function Proc34()
 {
     print("<br>");
-    $n=rand(7,11);
+    $n = rand(7, 11);
     print($n."!=".Fact($n)."<br>");
     print($n."!!=".Fact2($n)."<br>");
     print($n."!!=".Fact3($n)."<br>");
-    print(" это чила Фибоначчи.".Fib($n)."<br>");
+    print(" пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.".Fib($n)."<br>");
     //$x=20;
-    //print(" квадраты чисел:".Quaters($x)."<br>");
+    //print(" пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:".Quaters($x)."<br>");
 }
+
 Proc34();
 
+/**
+ * @param $a
+ * @param $b
+ */
 function falseSwap($a, $b)
 {
     print("NNNNNNNNNNNNNNNNNNN<br>");
@@ -733,6 +994,11 @@ function falseSwap($a, $b)
     $b = $temp;
     print($a." ".$b."<br>");
 }
+
+/**
+ * @param $a
+ * @param $b
+ */
 function realSwap(&$a, &$b)
 {
     print("in true function ".$a." ".$b."<br>");
@@ -742,6 +1008,9 @@ function realSwap(&$a, &$b)
     print($a." ".$b."<br>");
 }
 
+/**
+ *
+ */
 function SwapDemo()
 {
     $a = 4;
@@ -751,26 +1020,44 @@ function SwapDemo()
     realSwap($a, $b);
     print("outside of function ".$a." ".$b."<br>");
 }
+
 SwapDemo();
 
+/**
+ * @param $a
+ */
 function qqqq($a)
 {
-    $a[3]=456;
+    $a[3] = 456;
     print($a[3]);
 }
+
+/**
+ *
+ */
 function qqqqqqqq()
 {
-    $a = array(1,2,3,4,5,6);
+    $a = array(1, 2, 3, 4, 5, 6);
     qqqq($a);
     print("<br>".$a[3]."<br>");
 }
+
 qqqqqqqq();
 
-function outputParams($a, &$b, &$c)  // vernuli 2 otveta 
+/**
+ * @param $a
+ * @param $b
+ * @param $c
+ */
+function outputParams($a, &$b, &$c)  // vernuli 2 otveta
 {
-    $b = (int)$a;
-    $c = $a-$b;   
+    $b = (int) $a;
+    $c = $a - $b;
 }
+
+/**
+ *
+ */
 function argggh()
 {
     //$outCeliy ;
@@ -779,5 +1066,5 @@ function argggh()
     outputParams($x, $outCeliy, $drobniy);
     print($x." ".$outCeliy." ".$drobniy."<br>");
 }
+
 argggh();
-?>
