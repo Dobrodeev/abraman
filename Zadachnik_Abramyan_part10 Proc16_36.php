@@ -917,6 +917,11 @@ function Quaters($x)
  **/
 //
 
+/**
+ * Рекурсивный расчет факториал числа $n
+ * @param $n
+ * @return bool|float|int
+ */
 function FactorialRec($n)
 {
     if ($n == 0) {
