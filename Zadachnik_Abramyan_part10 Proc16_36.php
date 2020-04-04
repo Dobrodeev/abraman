@@ -915,6 +915,8 @@ function Quaters($x)
  * return;
  * }
  **/
+//
+
 function FactorialRec($n)
 {
     if ($n == 0) {
@@ -923,8 +925,12 @@ function FactorialRec($n)
     if ($n > 0) {
         return FactorialRec($n - 1) * $n;
     }
+    return true;
 }
 
+echo 'Рекурсивный факториал 7!: <br>';
+echo '7!='.FactorialRec(7);
+echo '<br>';
 /**
  * @param $n
  * @return int
