@@ -149,8 +149,9 @@ function pyramidaDown()
 //
 
 /**
- *
- * cos x = 1 - x^2/2! + x^4/4! - ...+ x^n/n!
+ * sin x = x - x^3/3! + x^5/5! - ...
+ * cos x = 1 - x^2/2! + x^4/4! - x^6/6! + ...
+ * e^x = 1 + x/1! + x^2/2! + x^3/3! + ...
  * то есть расчитать cos (87.44) с точностью до 4-го члена ряда
  * @param $x
  * @param $n
@@ -163,7 +164,9 @@ function exponenta($x, $n)
         $exponenta += pow($x, 2 * $i) / (recFactorial(2 * $i));
         $i++;
     }
-
+    /*
+     * exp = 1 + x^2/2! + x^4/4! + ...
+     * */
     echo 'exp('.$x.')='.$exponenta.'<br>';
     echo ' при n='.$n.'<br>';
 }
