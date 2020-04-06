@@ -169,3 +169,83 @@ function begin11($a, $b)
 echo 'Сумма, разность, произведение, частное модулей двух чисел $a & $b: <br>';
 echo begin11(25.5, 27.7);
 echo '<br>';
+/**
+ * @param $a
+ * @param $b
+ * @return string
+ */
+function begin12($a, $b)
+{
+    if (!is_numeric($a) AND !is_numeric($b)) {
+        die('Должны быть числовые значения сторон прямоугольного треугольника.');
+    }
+    $c = sqrt($a * $a + $b * $b);
+    $Perimetr = $a + $b + $c;
+    return $c.' '.$Perimetr.' ';
+}
+
+echo begin12(3, 4);
+echo '<br>';
+/**
+ * Даны два круга с общим центром и радиусами R1 и R2 (R1 > R2).
+ * Найти площади этих кругов S1 и S2, а также площадь S3 кольца, внешнийрадиус которого равен R1,
+ * а внутренний радиус равен R2:
+ * S1 = π · (R1)2,
+ * S2 = π · (R2)2,
+ * S3 = S1 − S2.
+ * @param $r1
+ * @param $r2
+ * @return string
+ */
+function begin13($r1, $r2)
+{
+    if (!is_numeric($r1) AND !is_numeric($r2)) {
+        die('Входные данные - только числа, можна с плавающей точкой.');
+    }
+    $S1 = M_PI * $r1 * $r1;
+    $S2 = M_PI * $r2 * $r2;
+    $S3 = $S1 - $S2;
+    return 'Площадь кольца: '.$S3;
+}
+
+echo begin13(4.23, 2.78);
+echo '<br>';
+/**
+ * Дана длина L окружности. Найти ее радиус R и площадь S круга,
+ * ограниченного этой окружностью, учитывая, что L = 2· π · R,
+ * S = π · R2
+ * @param $L
+ * @return string
+ */
+function begin14($L)
+{
+    if (!is_numeric($L)) {
+        die('L must be numeric.');
+    }
+    $r = $L / (2 * M_PI);
+    $S = M_PI * $r * $r;
+    return 'Радиус и площадь круга окружности заданной длинны $L = '.$L.' $r = '.$r.' $S = '.$S;
+}
+
+echo begin14(16.67);
+echo '<br>';
+/**
+ * Дана площадь S круга. Найти его диаметр D и длину L окружности,
+ * ограничивающей этот круг, учитывая, что L = 2· π · R,
+ * S = π · R2.
+ * @param $S
+ * @return string
+ */
+function begin15($S)
+{
+    if (!is_numeric($S)) {
+        die('$S must be numeric.');
+    }
+    $r = sqrt($S / M_PI);
+    $d = 2 * $r;
+    $L = 2 * M_PI * $r * $r;
+    return 'Диаметр и длинна окружности заданной площади $S = '.$S.' $d = '.$d.' $L = '.$L;
+}
+
+echo begin15(34.78);
+echo '<br>';
