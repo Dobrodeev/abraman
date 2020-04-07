@@ -249,3 +249,73 @@ function begin15($S)
 
 echo begin15(34.78);
 echo '<br>';
+/**
+ * Найти расстояние между двумя точками с заданными координата-
+ * ми x1 и x2 на числовой оси: |x2 −x1|.
+ * @param $x1
+ * @param $x2
+ * @return string
+ */
+function begin16($x1, $x2)
+{
+    if (!is_numeric($x1) AND !is_numeric($x2)) {
+        die('$x1, $x2 must be numecric.');
+    }
+    return 'Расстояние между точками $x1 & $x2: '.abs($x1 - $x2).' $x1 = '.$x1.' $x2 = '.$x2;
+}
+
+print begin16(-34.4, -23.57);
+echo '<br>';
+/**
+ * Даны три точки A, B, C на числовой оси. Найти длины отрезков AC
+ * и BC и их сумму
+ * @param $A
+ * @param $B
+ * @param $C
+ * @return string
+ */
+function begin17($A, $B, $C)
+{
+    if (!is_numeric($A) AND !is_numeric($B) AND !is_numeric($C)) {
+        die('$A, $B, $C must be numeric.');
+    }
+    $AC = abs($A - $C);
+    $BC = abs($B - $C);
+    $ACBC = $AC + $BC;
+    return 'Line $AC = '.$AC.' $BC = '.$BC.' $AC + $BC = '.$ACBC;
+}
+
+print begin17(3.5977, 23.34, 17.594);
+echo '<br>';
+/**
+ * Даны три точки A, B, C на числовой оси. Точка C расположена
+ * между точками A и B. Найти произведение длин отрезков AC и BC.
+ * @param $A
+ * @param $B
+ * @param $C
+ * @return string
+ */
+//
+
+/**
+ * @param $A
+ * @param $B
+ * @param $C
+ * @return float|int
+ */
+function begin18($A, $B, $C)
+{
+    if (!is_numeric($A) AND !is_numeric($B) AND !is_numeric($C)) {
+        die('$A, $B, $C must be numeric');
+    }
+    // $A < $C < $B
+    $AC = abs($A - $C);
+    $BC = abs($B - $C);
+    $P = $AC * $BC;
+//    return 'Произведение длин отрезков $AC * $BC = '.$P;
+    return $P;
+}
+
+print 'Произведение длин отрезков $AC * $BC = '.begin18(3.232, 7.34, 19.97);
+print '<br>';
+//print begin18(3.232, 7.34, 19.97);
