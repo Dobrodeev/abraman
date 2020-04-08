@@ -2,16 +2,27 @@
 /**
  * @param $a
  * @package exercises
+ * @author Dobrodeev V.
  * Производится расчет периметра квадрата со стороной a по формуле P=4a
  * @license
  */
+//
+/**
+ * Дана сторона квадрата a. Найти его периметр P = 4 * a
+ * @param $a
+ * @return float|int
+ */
 function begin1($a)
 {
+    if (!is_numeric($a)) {
+        die('$a must be numeric.');
+    }
     $P = 4 * $a;
-    echo 'Периметр квадрата: '.$P;
+    return $P;
 }
 
-begin1(5);
+echo 'Периметр квадрата: '.begin1(3.5356);
+
 echo '<br>';
 /**
  * @param $a
@@ -319,3 +330,86 @@ function begin18($A, $B, $C)
 print 'Произведение длин отрезков $AC * $BC = '.begin18(3.232, 7.34, 19.97);
 print '<br>';
 //print begin18(3.232, 7.34, 19.97);
+/**
+ * аны координаты двух противоположных вершин прямоугольника:
+ * (x1, y1), (x2, y2). Стороны прямоугольника параллельны осям координат.
+ * Найти периметр и площадь данного прямоугольника.
+ * @param $x1
+ * @param $y1
+ * @param $x2
+ * @param $y2
+ * @return float|int
+ */
+function begin19($x1, $y1, $x2, $y2)
+{
+    if (!is_numeric($x1) AND !is_numeric($y1) AND !is_numeric($x2) AND !is_numeric($y2)) {
+        die('$x1, $y1, $x2, $y2 must be numeric.');
+    }
+    $AB = abs($y2 - $y1);
+    $BC = abs($x2 - $x1);
+    $P = 2 * ($AB + $BC);
+    $S = $AB * $BC;
+    return $S;
+}
+
+print 'Площадь прямоугольника $S = '.begin19(3, 2.34, 5.78, 7.12);
+print '<br>';
+/**
+ * Найти расстояние между двумя точками с заданными координатами
+ * (x1, y1) и (x2, y2) на плоскости. Расстояние вычисляется по формуле sqrt((x2 −x1)2 + (y2 −y1)2)
+ * @param $x1
+ * @param $y1
+ * @param $x2
+ * @param $y2
+ * @return float
+ */
+function begin20($x1, $y1, $x2, $y2)
+{
+    if (!is_numeric($x1) AND !is_numeric($y1) AND !is_numeric($x2) AND !is_numeric($y2)) {
+        die('$x1, $y1, $x2, $y2 must be numeric.');
+    }
+    $Line = sqrt(($x2 - $x1) * ($x2 - $x1) + ($y2 - $y1) * ($y2 - $y1));
+    return $Line;
+}
+
+print 'Расстояние между точками ($x1, $y1) & ($x2, $y2) $Line = '.begin20(3, 2.34, 5.78, 7.12);
+print '<br>';
+/**
+ * Даны координаты трех вершин треугольника: (x1, y1), (x2, y2), (x3, y3).
+ * Для нахождения площади треугольника со сторонами a, b, c использовать формулу Герона
+ * @param $x1
+ * @param $y1
+ * @param $x2
+ * @param $y2
+ * @param $x3
+ * @param $y3
+ * @return float
+ */
+function begin21($x1, $y1, $x2, $y2, $x3, $y3)
+{
+    $a = begin20($x1, $y1, $x2, $y2);
+    $b = begin20($x1, $y1, $x3, $y3);
+    $c = begin20($x2, $y2, $x3, $y3);
+    $p = ($a + $b + $c) / 2;
+    $S = sqrt($p * ($p - $a) * ($p - $b) * ($p - $c));
+    return $S;
+}
+
+print 'Площадь треугольника со сторонами $x1, $y1, $x2, $y2, $x3, $y3 $S = '.begin21(3, 2.34, 5.78, 7.12, 7.23, 2.734);
+print '<br>';
+/**
+ * Поменять местами содержимое переменных A и B и вывести новые значения A и B.
+ * @param $a
+ * @param $b
+ */
+function begin22($a, $b)
+{
+    print '$a = '.$a.' $b = '.$b.'<br>';
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
+    print 'Поменяли местами $a, $b <br>';
+    print '$a = '.$a.' $b = '.$b.'<br>';
+}
+
+begin22(34.3, -43.34);
