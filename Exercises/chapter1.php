@@ -413,3 +413,71 @@ function begin22($a, $b)
 }
 
 begin22(34.3, -43.34);
+/**
+ * Даны переменные A, B, C. Изменить их значения, переместив содержимое A в B, B — в C, C — в A, и
+ * вывести новые значения переменных A,B, C
+ * @param $a
+ * @param $b
+ * @param $c
+ */
+function begin23($a, $b, $c)
+{
+    print '$a = '.$a.' $b = '.$b.' $c = '.$c.'<br>';
+    // a->b, b->c, c->a
+    $temp = $a;
+    $a = $c;
+    $c = $b;
+    $b = $temp;
+    print '$a = '.$a.' $b = '.$b.' $c = '.$c.'<br>';
+}
+
+begin23(34.3, -43.34, 12.57);
+/**
+ * Даны переменные A, B, C. Изменить их значения, переместив содержимое A в C, C — в B, B — в A, и
+ * вывести новые значения переменных A,B, C.
+ * @param $a
+ * @param $b
+ * @param $c
+ */
+function begin24($a, $b, $c)
+{
+    print '$a = '.$a.' $b = '.$b.' $c = '.$c.'<br>';
+    // a->c, c->b, b->a
+    $temp = $a;
+    $a = $b;
+    $b = $c;
+    $c = $temp;
+    print '$a = '.$a.' $b = '.$b.' $c = '.$c.'<br>';
+}
+
+begin24(34.3, -43.34, 12.57);
+/**
+ * Найти значение функции y = 3x6 - 6x2 - 7 при данном значении x.
+ * @param $x
+ * @return float|int
+ */
+function begin25($x)
+{
+    if (!is_numeric($x)) {
+        die('$x must be numeric.');
+    }
+    $y = 4 * pow($x, 6) - 6 * pow($x, 2) - 7;
+    return $y;
+}
+
+print 'y(x) = '.begin25(-4.24552).'<br>';
+/**
+ * Найти значение функции y = 4(x¡3)6 ¡ 7(x¡3)3 + 2 при данном значении x.
+ * @param $x
+ * @return float|int
+ */
+function begin26($x)
+{
+    if (!is_numeric($x)) {
+        die('$x must be numeric.');
+    }
+    $y = 4 * pow($x - 3, 6) - 7 * pow($x - 3, 3) + 2;
+    return $y;
+}
+
+print 'y(x) = '.begin26(-4.24552).'<br>';
