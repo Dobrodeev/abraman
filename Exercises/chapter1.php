@@ -481,3 +481,37 @@ function begin26($x)
 }
 
 print 'y(x) = '.begin26(-4.24552).'<br>';
+/**
+ * @param $a
+ * @return float|int
+ */
+function begin27($a)
+{
+    if (!is_numeric($a)) {
+        die('$a must be numeric.');
+    }
+    $A2 = $a * $a;
+    $A4 = $A2 * $A2;
+    $A8 = $A4 * $A4;
+    return $A8;
+}
+
+print '$A^8 = '.begin27(.0343).'<br>';
+/**
+ * @param $a
+ * @return float|int
+ */
+function begin28($a)
+{
+    if (!is_numeric($a)) {
+        exit('$a must be numeric.');
+    }
+    $A2 = $a * $a; //2
+    $A3 = $A2 * $a;//3
+    $A2 = $A2 * $A3;//5
+    $A3 = $A2 * $A2;//10
+    $A3 = $A3 * $A2;
+    return $A3;
+}
+
+print '$A^15 = '.begin28(0.123545).'<br>';
