@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @param $a
  * @package exercises
@@ -515,3 +516,14 @@ function begin28($a)
 }
 
 print '$A^15 = '.begin28(0.123545).'<br>';
+
+function begin29(int $alpha)
+{
+    if (!is_numeric($alpha)) {
+        exit('$a must be numeric.');
+    }
+    $radian = $alpha * M_PI / 180;
+    return $radian;
+}
+
+print 'Degrees to radian: 15 = '.begin29(15).' radians<br>';
