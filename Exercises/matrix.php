@@ -155,27 +155,35 @@ function pyramidaDown()
  * то есть расчитать cos (87.44) с точностью до 4-го члена ряда
  * @param $x
  * @param $n
+ * @return float|int
  */
-function exponenta($x, $n)
+function exponent($x, $n)
 {
     $i = 1;
-    $exponenta = 1;
+    $exponent = 1;
     while ($i <= $n) {
-        $exponenta += pow($x, 2 * $i) / (recFactorial(2 * $i));
+        $exponent += pow($x, 2 * $i) / (recFactorial(2 * $i));
         $i++;
     }
     /*
-     * exp = 1 + x^2/2! + x^4/4! + ...
+     * $exponent = 1 + x^2/2! + x^4/4! + ...
      * */
-    echo 'exp('.$x.')='.$exponenta.'<br>';
-    echo ' при n='.$n.'<br>';
+    /*echo 'exp('.$x.')='.$exponenta.'<br>';
+    echo ' при n='.$n.'<br>';*/
+    return $exponent;
 }
 
-/** Более оптимальный просчет суммы ряда */
-function summaRiada()
+/**
+ * Более оптимальный просчет суммы ряда
+ * @param $exhibitor
+ * @param $count
+ * @return float|int
+ */
+
+function sum_of_the_series($exhibitor, $count)
 {
-    $x = 5.3;
-    $n = 20;
+    $x = $exhibitor;
+    $n = $count;
     $sum = 1;
     $fact = 1;
     for ($i = 2; $i <= 2 * $n; $i += 2) {
@@ -184,9 +192,10 @@ function summaRiada()
         }
         $sum += pow($x, $i) / ($fact);
     }
-    echo $sum;
+    return $sum;
 }
 
+sum_of_the_series(5.3, 20);
 
 /**
  * Формируем матрицу натуральных чисел  размерностью 9 * 9
