@@ -98,7 +98,7 @@ echo $delta.' сек.<br>';
  * 5
  */
 
-function pyramidaOfNumbers()
+function pyramidOfNumbers()
 {
     for ($i = 0; $i < 9; $i++) {
         for ($j = 0; $j < 9; $j++) {
@@ -115,7 +115,7 @@ function pyramidaOfNumbers()
  * 45
  * 5
  */
-function pyramidaDown()
+function pyramidDown()
 {
     $a = 3;
     $b = 6;
@@ -206,7 +206,7 @@ sum_of_the_series(5.3, 20);
  * 37
  * Затем транспонируем матрицу, то есть столбики делаем строками
  */
-function cvadrarickNumbers()
+function matrixNumbers()
 {
     // Заполнение матрицы
     $associateArray = [];
@@ -242,17 +242,16 @@ function cvadrarickNumbers()
     echo '</table>';
 }
 
-cvadrarickNumbers();
 // $a[$i][$j]=$a[$j][$i]
 
 /**
  * Вывод диагоналей матрицы, все остальное заполняется нулями. Точку пересечения диагоналей делаем нулем.
- * @param $N
+ * @param $size
  */
-function diagonalMatrica($N)
+function matrix_diagonal($size)
 {
     // $N - размер квадрата
-    $N = 15;
+    $N = $size;
     for ($i = 0; $i < $N; $i++) {
         for ($j = 0; $j < $N; $j++) {
 //        if (($i == $j || $j == $N - 1 -$i) && !($i == $j && $j == $N - 1 -$i))
@@ -266,7 +265,6 @@ function diagonalMatrica($N)
     }
 }
 
-diagonalMatrica(9);
 /**
  * Рекурсивный расчет факториала
  * @param $n
