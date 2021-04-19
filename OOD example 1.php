@@ -1,37 +1,63 @@
 <?php
 
 /**
- * @author Valera
+ * @author Kirill Swiderscky
  * @copyright 2017
  */
+
 #
+
+/**
+ * Class baby
+ */
 class baby
 {
+    /**
+     * @var int
+     */
     public $BoobsSize;
+    /**
+     * @var string
+     */
     public $Name;
+    /**
+     * @var int
+     */
     private $age;
-    
-    public function HappyBirthday()
-    {
-        $this->age++;
-        if($this->age>21) print("mne 21");
-    }
+
+    /**
+     * baby constructor.
+     */
     public function __construct()
     {
         $this->BoobsSize = 4;
         $this->Name = "Anzhela Petrovna";
         $this->age = 46;
     }
+
+    /**
+     *
+     */
+    public function HappyBirthday()
+    {
+        $this->age++;
+        if ($this->age > 21) {
+            print("mne 21");
+        }
+    }
+
+
 }
+
 print("Constructor example<br>");
 print("<br>");
 $Nastya = new baby();
 
 $Nastya->BoobsSize = 2;
-$Nastya->Name="suka";
+$Nastya->Name = "suka";
 
 $Nastya->HappyBirthday();
-//$Nastya->age нельзя!! эйдж - приватное поле    
+//$Nastya->age пїЅпїЅпїЅпїЅпїЅпїЅ!! пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ    
 
 $A = new baby();
 
@@ -41,26 +67,53 @@ echo "</pre>";
 #
 print("Nasledovanie example class avtomat>SomogonniyAparat & CoffeeMachine<br>");
 print("<br>");
+
+/**
+ * Class avtomat
+ */
 abstract class avtomat
 {
+    /**
+     * @return mixed
+     */
     abstract function GetDrink();
+
+    /**
+     * @var
+     */
     private $name;
+
+    /**
+     * @return mixed
+     */
     public function GetName()
     {
         return $name;
     }
 }
 
+/**
+ * Class SamogonniyApparat
+ */
 class SamogonniyApparat extends avtomat
 {
+    /**
+     * @return mixed|void
+     */
     public function GetDrink()
     {
         print("SAMOHON<br>");
     }
 }
 
+/**
+ * Class CoffeeMachine
+ */
 class CoffeeMachine extends avtomat
 {
+    /**
+     * @return mixed|void
+     */
     public function GetDrink()
     {
         print("odin kofe i odin bulochka<br>");
@@ -76,17 +129,18 @@ print("<br>");
 
 print("class Orc<br>");
 print("<br>");
+
 class Orc
 {
     public $name;
     public $age;
-    
+
     public static $count = 0;
-    
+
     public function __construct()
     {
         Orc::$count++;
-    }    
+    }
 }
 
 $orc1 = new Orc();
@@ -101,17 +155,19 @@ function NormalLife()
     $x = 10;
     $y = 15;
     print($x." ".$y."<br>");
-    $y=$x;
+    $y = $x;
     print($x." ".$y."<br>");
-    $y=12;
+    $y = 12;
     print($x." ".$y."<br>");
 }
+
 NormalLife();
 
 class WTF
 {
     public $num;
 }
+
 function CrazyLifeWithOOP()
 {
     print("what a shit?<br>");
@@ -120,16 +176,17 @@ function CrazyLifeWithOOP()
     $x->num = 10;
     $y->num = 15;
     print($x->num." ".$y->num."<br>");
-    $y=$x;//y=10
+    $y = $x;//y=10
     print($x->num." ".$y->num."<br>");
-    $y->num=12;
+    $y->num = 12;
     print($x->num." ".$y->num." shit<br>");
 }
+
 CrazyLifeWithOOP();
 /**
-echo "<pre>";
-print_r($A);
-echo "</pre>";
-*/
+ * echo "<pre>";
+ * print_r($A);
+ * echo "</pre>";
+ */
 
 ?>
