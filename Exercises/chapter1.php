@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 /**
  * @param $a
  * @package exercises
@@ -517,13 +517,33 @@ function begin28($a)
 
 print '$A^15 = '.begin28(0.123545).'<br>';
 
-function begin29(int $alpha)
+
+/**
+ * Перевод градусов в радианы
+ * @param $alpha
+ * @return float|int
+ */
+function begin29($alpha)
 {
-    if (!is_numeric($alpha)) {
+    /*if (!is_numeric($alpha)) {
         exit('$a must be numeric.');
-    }
+    }*/
     $radian = $alpha * M_PI / 180;
     return $radian;
 }
 
-print 'Degrees to radian: 15 = '.begin29(15).' radians<br>';
+$number = '15.0523';
+print 'Degrees to radian: 15 = '.begin29($number).' radians<br>';
+
+/**
+ * Радианы в градусы
+ * @param $alpha
+ * @return float|int
+ */
+function begin30($alpha)
+{
+    $gradus = $alpha * 180 / M_PI;
+    return $gradus;
+}
+
+print '1 radians = '.begin30(1).' gradus<br>';
