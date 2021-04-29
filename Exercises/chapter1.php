@@ -537,6 +537,7 @@ print 'Degrees to radian: 15 = '.begin29($number).' radians<br>';
 
 /**
  * Радианы в градусы
+ * 1 рад = 180/M_PI = 57,295779513 = 57 grad 17' 44,806''
  * @param $alpha
  * @return float|int
  */
@@ -546,4 +547,52 @@ function begin30($alpha)
     return $gradus;
 }
 
-print '1 radians = '.begin30(1).' gradus<br>';
+//print '1 radians = '.begin30(1).' gradus<br>';
+$n = begin30(1);
+printf("%.3f\n", $n);
+echo '<br>';
+/**
+ * 1 миля в час равно 1.609344 километра в час
+ * 1 километр в час равно 0.621371 миля в час.
+ */
+function milesToKilometres($miles)
+{
+    return $miles * 1.609344;
+}
+
+//echo '60 miles = '.milesToKilometres(60).' KPH<br>';
+$kilometres = milesToKilometres(60);
+printf("60 miles = %.1f", $kilometres);
+echo '<br>';
+/**
+ * @param $Farengeith
+ * @return float|int
+ */
+function begin31($Farengeith)
+{
+    $Celsium = ($Farengheith - 32) * 5 / 9;
+    return $Celsium;
+}
+
+$Celsium = begin31(47);
+printf("47 grad F = %.1f", $n);
+echo '<br>';
+/**
+ * @param $Cels
+ * @return float|int
+ */
+function begin32($Cels)
+{
+    $Farengheith = ($Cels + 32) * 9 / 5;
+    return $Farengheith;
+}
+
+/*$CelsiumVar = 40;
+echo '40 grad Celsium = '.begin32($CelsiumVar).' grad F<br>';*/
+//echo '40 grad С = '.begin32(40).' grad F <br>';
+/*$FarengheitVarrable = begin32(40);
+echo '$FarengheitVarrable = '.$FarengheitVarrable.'<br>';*/
+$FarengheitVarrable = 40;
+echo '$FarengheitVarrable = '.$FarengheitVarrable.'<br>';
+begin32($FarengheitVarrable);
+echo '$FarengheitVarrable = '.$FarengheitVarrable.'<br>';
