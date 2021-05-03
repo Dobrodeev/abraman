@@ -188,7 +188,7 @@ echo '<br>';
  */
 function begin12($a, $b)
 {
-    if (!is_numeric($a) AND !is_numeric($b)) {
+    if (!is_numeric($a) and !is_numeric($b)) {
         die('Должны быть числовые значения сторон прямоугольного треугольника.');
     }
     $c = sqrt($a * $a + $b * $b);
@@ -211,7 +211,7 @@ echo '<br>';
  */
 function begin13($r1, $r2)
 {
-    if (!is_numeric($r1) AND !is_numeric($r2)) {
+    if (!is_numeric($r1) and !is_numeric($r2)) {
         die('Входные данные - только числа, можна с плавающей точкой.');
     }
     $S1 = M_PI * $r1 * $r1;
@@ -270,7 +270,7 @@ echo '<br>';
  */
 function begin16($x1, $x2)
 {
-    if (!is_numeric($x1) AND !is_numeric($x2)) {
+    if (!is_numeric($x1) and !is_numeric($x2)) {
         die('$x1, $x2 must be numecric.');
     }
     return 'Расстояние между точками $x1 & $x2: '.abs($x1 - $x2).' $x1 = '.$x1.' $x2 = '.$x2;
@@ -288,7 +288,7 @@ echo '<br>';
  */
 function begin17($A, $B, $C)
 {
-    if (!is_numeric($A) AND !is_numeric($B) AND !is_numeric($C)) {
+    if (!is_numeric($A) and !is_numeric($B) and !is_numeric($C)) {
         die('$A, $B, $C must be numeric.');
     }
     $AC = abs($A - $C);
@@ -317,7 +317,7 @@ echo '<br>';
  */
 function begin18($A, $B, $C)
 {
-    if (!is_numeric($A) AND !is_numeric($B) AND !is_numeric($C)) {
+    if (!is_numeric($A) and !is_numeric($B) and !is_numeric($C)) {
         die('$A, $B, $C must be numeric');
     }
     // $A < $C < $B
@@ -343,7 +343,7 @@ print '<br>';
  */
 function begin19($x1, $y1, $x2, $y2)
 {
-    if (!is_numeric($x1) AND !is_numeric($y1) AND !is_numeric($x2) AND !is_numeric($y2)) {
+    if (!is_numeric($x1) and !is_numeric($y1) and !is_numeric($x2) and !is_numeric($y2)) {
         die('$x1, $y1, $x2, $y2 must be numeric.');
     }
     $AB = abs($y2 - $y1);
@@ -366,7 +366,7 @@ print '<br>';
  */
 function begin20($x1, $y1, $x2, $y2)
 {
-    if (!is_numeric($x1) AND !is_numeric($y1) AND !is_numeric($x2) AND !is_numeric($y2)) {
+    if (!is_numeric($x1) and !is_numeric($y1) and !is_numeric($x2) and !is_numeric($y2)) {
         die('$x1, $y1, $x2, $y2 must be numeric.');
     }
     $Line = sqrt(($x2 - $x1) * ($x2 - $x1) + ($y2 - $y1) * ($y2 - $y1));
@@ -596,3 +596,82 @@ $FarengheitVarrable = 40;
 echo '$FarengheitVarrable = '.$FarengheitVarrable.'<br>';
 begin32($FarengheitVarrable);
 echo '$FarengheitVarrable = '.$FarengheitVarrable.'<br>';
+/**
+ * @param $var
+ */
+function foo(&$var)
+{
+    $var++;
+}
+
+$a = 5;
+foo($a);
+// $a здесь равно 6
+printf("a =  %d ", $a);
+echo '<br>';
+/**
+ * @param $var
+ * @return int
+ */
+function fooB($var)
+{
+    return $var++;
+}
+
+$b = 5;
+fooB($a);
+// $a здесь равно 6
+printf("b =  %d ", $b);
+echo '<br>';
+echo '$b = '.fooB($b).'<br>';
+$c = fooB($b);
+echo '$c = '.fooB($b).'<br>';
+/**
+ * @param $var
+ */
+function fooC($var): void
+{
+    $var++;
+}
+
+//Решить линейное уравнение A· x + B = 0, заданное своими коэффи-
+//циентами A и B
+/**
+ * @param $a
+ * @param $b
+ * @return float|int
+ */
+function begin38($a, $b)
+{
+    $x = -$b / $a;
+    return $x;
+}
+
+//$x = 0;
+$a1 = -13;
+$b1 = 29;
+$x = begin38($a1, $b1);
+printf("x = %.3f", $x);
+echo '<br>';
+//echo '$x = '.$x.'<br>';
+//print_r($x);
+// -13x + 29 = 0;
+//$x = begin38(-13, 29);
+//printf("x = %.2f", $x);
+//echo '$x = '.begin38(-13, 29).'<br>';
+function begin39($a, $b, $c)
+{
+    $D = $b * $b - 4 * $a * $c;
+    $x1 = -$b - sqrt($D) / (2 * $a);
+    $x2 = -$b + sqrt($D) / (2 * $a);
+    return [$x1, $x2];
+}
+
+$result = begin39(-13, 6, 23);
+//printf("x1,2 = %.3f", $result);
+/*echo '<pre>';
+print_r($result);
+echo '</pre>';*/
+$x1 = round($result[0], 2);
+$x2 = round($result[1], 2);
+echo '$x1 = '.$x1.' $x2 = '.$x2.'<br>';
