@@ -554,8 +554,19 @@ echo '<br>';
 /**
  * 1 миля в час равно 1.609344 километра в час
  * 1 километр в час равно 0.621371 миля в час.
+ * @param $miles
+ * @return float
  */
 function milesToKilometres($miles)
+{
+    return $miles * 1.609344;
+}
+
+/**
+ * @param  float  $miles
+ * @return float
+ */
+function milesTokilometresTyped(float $miles)
 {
     return $miles * 1.609344;
 }
@@ -659,6 +670,13 @@ echo '<br>';
 //$x = begin38(-13, 29);
 //printf("x = %.2f", $x);
 //echo '$x = '.begin38(-13, 29).'<br>';
+/**
+ * корни квадратного уравнения
+ * @param $a
+ * @param $b
+ * @param $c
+ * @return float[]|int[]
+ */
 function begin39($a, $b, $c)
 {
     $D = $b * $b - 4 * $a * $c;
@@ -675,3 +693,130 @@ echo '</pre>';*/
 $x1 = round($result[0], 2);
 $x2 = round($result[1], 2);
 echo '$x1 = '.$x1.' $x2 = '.$x2.'<br>';
+
+/**
+ * решение системы линейных уравнений вида
+ * A1· x + B1· y = C1,
+ * A2· x + B2· y = C2,
+ * @param $a1
+ * @param $b1
+ * @param $c1
+ * @param $a2
+ * @param $b2
+ * @param $c2
+ * @return float[]|int[]
+ */
+function begin40($a1, $b1, $c1, $a2, $b2, $c2)
+{
+    $D = $a1 * $b2 - $a2 * $b1;
+    $x = ($c1 * $b2 - $c2 * $b1) / $D;
+    $y = ($a1 * $c2 - $a2 * $c1) / $D;
+    return [$x, $y];
+}
+
+$systemEquation = begin40(-3, 23, -19, 4, -57, -109);
+printf("x= %.1f", $systemEquation[0]);
+echo '<br>';
+printf("y= %.1f", $systemEquation[1]);
+echo '<br>';
+/**
+ * @param $lsantimetres
+ * @return float|int
+ */
+function integer1($lsantimetres)
+{
+    return $metres = $lsantimetres / 10;
+}
+
+//$some_metres = 230;
+//$some_metres = 0;
+$some_metres = integer1(230);
+//echo $some_metres;
+//print_r($some_metres);
+echo '230 santimetres = '.$some_metres.' metres<br>';
+/**
+ * @param $kilograms
+ * @return float|int
+ */
+function integer2($kilograms)
+{
+    $tons = $kilograms / 1000;
+    return $tons;
+}
+
+/**
+ * @param $bytes
+ * @return float|int
+ */
+function integer3($bytes)
+{
+    $kilobytes = $bytes / 1024;
+    return $kilobytes;
+}
+
+/**
+ * @param $a
+ * @param $b
+ * @return float|int
+ */
+function integer4($a, $b)
+{
+    $all = $a / $b;
+    return $all;
+}
+
+/**
+ * @param $data
+ */
+function create_table($data)
+{
+    echo '<table>';
+//    reset($data);
+    $value = current($data);
+    while ($value) {
+        echo "<tr><td>$value<td><tr>\n";
+        $value = next($data);
+    }
+    echo '</table>';
+}
+
+$my_data = ['Первая порция данных  ', 'вторая', 'третья'];
+create_table($my_data);
+/**
+ * @param $data
+ * @param  null  $header
+ * @param  null  $caption
+ */
+function create_table2($data, $header = null, $caption = null)
+{
+    echo '<table border = 1>';
+//    reset($data);
+    if ($caption) {
+        echo "<caption>$caption<caption>";
+    }
+    if ($header) {
+        echo "<tr><th>$header</tr></th>";
+    }
+    $value = current($data);
+    while ($value) {
+        echo "<tr><td>$value<td><tr>\n";
+        $value = next($data);
+    }
+    echo '</table>';
+}
+
+create_table2($my_data, 'Header', 'Caption');
+/**
+ * @param $a
+ * @param $b
+ * @return int[]
+ */
+function integer5($a, $b)
+{
+    $some = $a % $b;
+    $all = (int) ($a / $b);
+    return [$some, $all];
+}
+
+$part_result = integer5(17, 3);
+echo 'В отрезке А помещается столоко отрезков Б: '.$part_result[1].' штук, '.$part_result[0].' - оставшаяся область<br>';
