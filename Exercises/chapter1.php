@@ -820,3 +820,14 @@ function integer5($a, $b)
 
 $part_result = integer5(17, 3);
 echo 'В отрезке А помещается столоко отрезков Б: '.$part_result[1].' штук, '.$part_result[0].' - оставшаяся область<br>';
+function integer6($number): array
+{
+    $left = (int) ($number / 10);
+    $right = $number % 10;
+    return [$left, $right];
+}
+
+echo '<br>';
+const SIMPLE_NUMBER = 17;
+$number_result = integer6(SIMPLE_NUMBER);
+echo "Число SIMPLE_NUMBER состоит из цифр: $number_result[0] & $number_result[1] <br>";
