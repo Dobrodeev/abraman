@@ -831,3 +831,28 @@ echo '<br>';
 const SIMPLE_NUMBER = 17;
 $number_result = integer6(SIMPLE_NUMBER);
 echo "Число SIMPLE_NUMBER состоит из цифр: $number_result[0] & $number_result[1] <br>";
+function integer7($result): array
+{
+    $amount = $result[0] + $result[1];
+    $composition = $result[0] * $result[1];
+    return [$amount, $composition];
+}
+
+$result_integer7 = integer7($number_result);
+echo "Сумма и произведение цифр числа SIMPLE_NUMBER: $result_integer7[0] & $result_integer7[1] <br>";
+function integer8($result): int
+{
+    $left = $result[0];
+    $right = $result[1];
+    $number = (int) implode([$right, $left]);
+    return $number;
+}
+
+//echo $number_result;
+$result_integer8 = integer8($number_result);
+/*print_r($result_integer8);
+var_dump($result_integer8);*/
+echo " Было 17, а стало: $result_integer8<br>";
+//unset($number_result, $result_integer7);
+//echo $number_result;
+//print_r($number_result);
