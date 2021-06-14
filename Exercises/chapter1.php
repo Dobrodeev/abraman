@@ -720,6 +720,8 @@ echo '<br>';
 printf("y= %.1f", $systemEquation[1]);
 echo '<br>';
 /**
+ * Дано расстояние L в сантиметрах. Используя операцию деления
+ * нацело, найти количество полных метров в нем (1 метр = 100 см)
  * @param $lsantimetres
  * @return float|int
  */
@@ -735,6 +737,8 @@ $some_metres = integer1(230);
 //print_r($some_metres);
 echo '230 santimetres = '.$some_metres.' metres<br>';
 /**
+ * Дана масса M в килограммах. Используя операцию деления нацело,
+ * найти количество полных тонн в ней (1 тонна = 1000 кг).
  * @param $kilograms
  * @return float|int
  */
@@ -745,6 +749,8 @@ function integer2($kilograms)
 }
 
 /**
+ * Дан размер файла в байтах. Используя операцию деления нацело,
+ * найти количество полных килобайтов, которые занимает данный файл (1 килобайт = 1024 байта).
  * @param $bytes
  * @return float|int
  */
@@ -755,6 +761,9 @@ function integer3($bytes)
 }
 
 /**
+ * Даны целые положительные числа A и B (A > B). На отрезке длины A размещено максимально
+ * возможное количество отрезков длины B (без наложений). Используя операцию деления нацело,
+ * найти количество отрезков B, размещенных на отрезке A.
  * @param $a
  * @param $b
  * @return float|int
@@ -807,6 +816,9 @@ function create_table2($data, $header = null, $caption = null)
 
 create_table2($my_data, 'Header', 'Caption');
 /**
+ * Даны целые положительные числа A и B (A > B). На отрезке длины A размещено максимально возможное количество
+ * отрезков длины B (без наложений). Используя операцию взятия остатка от деления нацело, найти длину незанятой
+ * части отрезка A.
  * @param $a
  * @param $b
  * @return int[]
@@ -820,6 +832,13 @@ function integer5($a, $b)
 
 $part_result = integer5(17, 3);
 echo 'В отрезке А помещается столоко отрезков Б: '.$part_result[1].' штук, '.$part_result[0].' - оставшаяся область<br>';
+/**
+ * Дано двузначное число. Вывести вначале его левую цифру (десятки), а затем — его правую цифру (единицы).
+ * Для нахождения десятков использовать операцию деления нацело, для нахождения единиц — операцию взятия
+ * остатка от деления.
+ * @param $number
+ * @return array|int[]
+ */
 function integer6($number): array
 {
     $left = (int) ($number / 10);
@@ -828,9 +847,17 @@ function integer6($number): array
 }
 
 echo '<br>';
+/**
+ * Обычное двузначное число
+ */
 const SIMPLE_NUMBER = 17;
 $number_result = integer6(SIMPLE_NUMBER);
 echo "Число SIMPLE_NUMBER состоит из цифр: $number_result[0] & $number_result[1] <br>";
+/**
+ * Дано двузначное число. Найти сумму и произведение его цифр.
+ * @param $result
+ * @return array
+ */
 function integer7($result): array
 {
     $amount = $result[0] + $result[1];
@@ -840,6 +867,11 @@ function integer7($result): array
 
 $result_integer7 = integer7($number_result);
 echo "Сумма и произведение цифр числа SIMPLE_NUMBER: $result_integer7[0] & $result_integer7[1] <br>";
+/**
+ * Дано двузначное число. Вывести число, полученное при перестановке цифр исходного числа.
+ * @param $result
+ * @return int
+ */
 function integer8($result): int
 {
     $left = $result[0];
